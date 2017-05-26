@@ -1,7 +1,7 @@
 import { assert, beforeAll } from 'chai';
 import { stub } from 'sinon';
-import suites from '../src/enum/suites';
-import cardNames from '../src/enum/cardnames';
+import suites from '../src/strings/suites';
+import cardNames from '../src/strings/cardnames';
 import Deck from '../src/deck';
 
 describe('Deck', () => {
@@ -28,7 +28,7 @@ describe('Deck', () => {
   });
   describe('#makeCards()', () => {
     it('empties the cards array before proceeding', () => {
-      deck.cards = new stub();
+
     });
     it('calls the Card class constructor with different arguments fifty-two times.', () => {
 
@@ -43,7 +43,7 @@ describe('Deck', () => {
     });
   });
   describe('#sort()', () => {
-    it('sorts the elements in the cards array alphabetically by suite and then numerically by value.', () => {
+    it('sorts the elements in the cards array alphabetically by suite and within each suite numerically by value.', () => {
 
     });
   });

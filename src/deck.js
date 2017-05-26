@@ -4,6 +4,8 @@ import Card from './card';
 
 export default class Deck {
   constructor() {
-
+    this.suites = suites;
+    this.cardNames = cardNames;
+    this.cards = [];
   }
 }
