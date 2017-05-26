@@ -4,7 +4,7 @@ import Card from '../src/card';
 
 let mockSuite = 'suite';
 let mockCardName = 'cardName';
-let mockCardValue = '0';
+let mockCardValue = 0;
 
 describe('Card', () => {
   describe('#Card(suite, name, value)', () => {
