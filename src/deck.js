@@ -1,5 +1,6 @@
-import suites from './suites';
-import cardNames from './cardnames';
+import suites from './enum/suites';
+import cardNames from './enum/cardnames';
+import Card from './Card';
 
 export default class Deck {
   constructor() {
