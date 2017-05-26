@@ -1,26 +1,26 @@
 import _ from 'underscore';
-import suites from './strings/suites';
+import suits from './strings/suits';
 import cardNames from './strings/cardnames';
 import Card from './card';
 
 /**
- * Deck is a class to manage Card classes. It holds the names of suites and
+ * Deck is a class to manage Card classes. It holds the names of suits and
  * cards, which it uses together with an inferred value to produce Card objects
  * representing a standard deck of playing cards.
  * It offers a method for generating the collection of cards, a utility method
- * for displaying all of those cards' fancy names with suites, and two other
+ * for displaying all of those cards' fancy names with suits, and two other
  * methods for sorting and shuffling the card collection.
  * @type {Deck}
  */
 export default class Deck {
   /**
    * Takes no parameter. Sets internal reference to external String Arrays
-   * containing the names of the suites and cards in a standard deck of
+   * containing the names of the suits and cards in a standard deck of
    * playing cards.
    * @return {Deck} Deck object for managing collection of Card objects.
    */
   constructor() {
-    this.suites = suites;
+    this.suits = suits;
     this.cardNames = cardNames;
     this.cards = [];
     this.makeCards
@@ -33,14 +33,14 @@ export default class Deck {
    */
   makeCards() {
     this.cards = [];
-    this.suites.forEach(suite => {
+    this.suits.forEach(suite => {
       this.cardNames.forEach((cardName, value) => {
         this.cards.push(new Card(suite, cardName, (value + 1)));
       });
     });
   }
   /**
-   * Uses console.log to print the card names with suites of the cards in the
+   * Uses console.log to print the card names with suits of the cards in the
    * cards array in their current order.
    * @return {null} No return value.
    */
@@ -50,7 +50,7 @@ export default class Deck {
   /**
    * Sorts the elements in the cards array using the suite name as a primary
    * sort and the card value as a secondary sort. The end result is the four
-   * suites sorted one after the other alphabetically, cards within numerically.
+   * suits sorted one after the other alphabetically, cards within numerically.
    * @return {null} No return value.
    */
   sortCards() {

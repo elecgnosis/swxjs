@@ -1,7 +1,7 @@
 import { assert, beforeAll } from 'chai';
 import { spy, stub } from 'sinon';
 import _ from 'underscore';
-import suites from '../src/strings/suites';
+import suits from '../src/strings/suits';
 import cardNames from '../src/strings/cardnames';
 import Card from '../src/card';
 import Deck from '../src/deck';
@@ -15,8 +15,8 @@ describe('Deck', () => {
     it('returns an instance of the Deck class', () => {
       assert.instanceOf(deck, Deck);
     });
-    it('assigns the suites array to its suites field', () => {
-      assert.strictEqual(deck.suites, suites);
+    it('assigns the suits array to its suits field', () => {
+      assert.strictEqual(deck.suits, suits);
     });
     it('assigns the cardNames array to its cardNames field', () => {
       assert.strictEqual(deck.cardNames, cardNames);
@@ -81,17 +81,17 @@ describe('Deck', () => {
       deck.makeCards();
       deck.shuffleCards();
       deck.sortCards();
-      const uniqSuites = _.uniq(deck.cards.map(card => card.suite));
-      const originalSuites = suites.slice();
-      originalSuites.sort((a, b) => a.localeCompare(b));
+      const uniqsuits = _.uniq(deck.cards.map(card => card.suite));
+      const originalsuits = suits.slice();
+      originalsuits.sort((a, b) => a.localeCompare(b));
       let isSortedByAlpha = true;
       let isSortedByValue = true;
       for (let i = 0;
-        i < (originalSuites.length)
+        i < (originalsuits.length)
           && isSortedByAlpha
           && isSortedByValue;
         i += 1) {
-        if (originalSuites[i] !== uniqSuites[i]) isSortedByAlpha = false;
+        if (originalsuits[i] !== uniqsuits[i]) isSortedByAlpha = false;
         for (let j = 0; j < 13 && isSortedByValue; j += 1) {
           if (deck.cards[j + (i * 13)].value !== (j + 1)) isSortedByValue = false;
         }
