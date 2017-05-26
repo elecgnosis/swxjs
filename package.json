@@ -4,9 +4,9 @@
   "description": "swxjs",
   "main": "lib/main.js",
   "scripts": {
-    "start": "node_modules/.bin/babel src -d lib && node lib/main.js",
-    "test": "node_modules/.bin/jasmine",
-    "build": "node_modules/.bin/babel src -d lib"
+    "start": "npm i && node_modules/.bin/babel src -d lib && node lib/main.js",
+    "test": "npm i && node_modules/.bin/jasmine",
+    "build": "npm i && node_modules/.bin/babel src -d lib"
   },
   "repository": {
     "type": "git",

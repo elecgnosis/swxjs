@@ -77,7 +77,7 @@ describe('Deck', () => {
       // make cards
       // shuffle cards
       // sort cards
-      // 
+      //
       deck.makeCards();
       deck.shuffleCards();
       deck.sortCards();
