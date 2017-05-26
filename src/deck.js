@@ -8,4 +8,12 @@ export default class Deck {
     this.cardNames = cardNames;
     this.cards = [];
   }
+  makeCards() {
+    this.cards = [];
+    this.suites.forEach(suite => {
+      this.cardNames.forEach((cardName, value) => {
+        this.cards.push(new Card(suite, cardName, (value + 1)));
+      });
+    });
+  }
 }

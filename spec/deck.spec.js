@@ -1,5 +1,6 @@
 import { assert, beforeAll } from 'chai';
 import { stub } from 'sinon';
+import _ from 'underscore';
 import suites from '../src/strings/suites';
 import cardNames from '../src/strings/cardnames';
 import Card from '../src/card';
