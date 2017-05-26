@@ -1,3 +1,9 @@
+/**
+ * Card holds three pieces of information: a suite name, a card name, and a
+ * numeric value for comparisons. It also has a method for getting a fancy name
+ * made of the card name and suite name together.
+ * @type {Card}
+ */
 export default class Card {
   constructor(suite, name, value) {
     if (!suite) throw new TypeError('Suite name is required.');
