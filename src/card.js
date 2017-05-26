@@ -11,7 +11,7 @@ export default class Card {
     this.name = name;
     this.value = value;
   }
-  getNameandSuite() {
-    return `${name} of ${suite}`;
+  getNameAndSuite() {
+    return `${this.name} of ${this.suite}`;
   }
 }

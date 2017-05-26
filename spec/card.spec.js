@@ -59,8 +59,8 @@ describe('Card', () => {
     it('returns a string containing the card\'s name and suite', () => {
       const card = new Card(mockSuite, mockCardName, mockCardValue);
       const cardNameAndSuite = card.getNameAndSuite();
-      const isNamePresent = cardNameAndSuite.indexOf(mockCardName);
-      const isSuitePresent = cardNameAndSuite.indexOf(mockSuite);
+      const isNamePresent = cardNameAndSuite.indexOf(mockCardName) !== -1;
+      const isSuitePresent = cardNameAndSuite.indexOf(mockSuite) !== -1;
 
       assert.isTrue((isSuitePresent && isSuitePresent));
     });
