@@ -2,6 +2,7 @@ import { assert, beforeAll } from 'chai';
 import { stub } from 'sinon';
 import suites from '../src/strings/suites';
 import cardNames from '../src/strings/cardnames';
+import Card from '../src/card';
 import Deck from '../src/deck';
 
 describe('Deck', () => {
@@ -28,13 +29,28 @@ describe('Deck', () => {
   });
   describe('#makeCards()', () => {
     it('empties the cards array before proceeding', () => {
-
+      deck.makeCards();
+      const firstRunCardsLength = deck.cards.length;
+      deck.makeCards();
+      const secondRunCardsLength = deck.cards.length;
+      assert.strictEqual(secondRunCardsLength, firstRunCardsLength);
     });
     it('calls the Card class constructor with different arguments fifty-two times.', () => {
-
+      // Stub Card constructor to capture different argument calls
+      // Or call .getNameAndSuite on every card and assert no duplicates
+      // Or just use Underscore.js
+      deck.makeCards();
+      const cardNamesWithSuite = deck.cards.map((card) => card.getNameAndSuite());
+      const noDuplicatesArray = _.uniq(cardNamesWithSuite);
+      assert.lengthOf(noDuplicatesArray, cardNamesWithSuite.length);
     });
     it('stores fifty-two instances of the Card class in the cards array.', () => {
-
+      deck.makeCards();
+      let cardCount = 0;
+      deck.cards.forEach(card => {
+        if (card instanceOf Card) cardCount += 1;
+      });
+      assert.strictEqual(cardCount, 52);
     });
   });
   describe('#showCards()', () => {
