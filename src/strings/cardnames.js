@@ -1,5 +1,5 @@
-// These are the text names of the twelve cards in each suite of a standard
-// deck of playing cards.
+// These are the text names of the twelve cards in each suit of a standard deck
+// of playing cards.
 const cardNames = [
   'Ace',
   'Deuce',
