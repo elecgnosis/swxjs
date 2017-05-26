@@ -21,7 +21,15 @@ export default class Deck {
     this.cards.forEach(card => console.log(card.getNameAndSuite()));
   }
   sortCards() {
-    
+    this.cards.sort((a, b) => {
+      const suiteCompareResult = a.suite.localeCompare(b.suite);
+      if (suiteCompareResult === 0) {
+        if (a.value > b.value) return 1;
+        if (a.value === b.value) return 0;
+        if (a.value < b.value) return -1;
+      }
+      return suiteCompareResult;
+    });
   }
   shuffleCards() {
     this.cards = _.shuffle(this.cards);
