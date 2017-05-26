@@ -37,9 +37,6 @@ describe('Deck', () => {
       assert.strictEqual(secondRunCardsLength, firstRunCardsLength);
     });
     it('calls the Card class constructor with different arguments fifty-two times.', () => {
-      // Stub Card constructor to capture different argument calls
-      // Or call .getNameAndSuite on every card and assert no duplicates
-      // Or just use Underscore.js
       deck.makeCards();
       const cardNamesWithSuite = deck.cards.map((card) => card.getNameAndSuite());
       const noDuplicatesArray = _.uniq(cardNamesWithSuite);
@@ -56,10 +53,6 @@ describe('Deck', () => {
   });
   describe('#showCards()', () => {
     it('calls console.log with the result of calling card.getNameAndSuite for each element in the cards array.', () => {
-      // make cards
-      // spy on .getNameAndSuite for each
-      // call showCards
-      // tally spy method calls
       let tally = 0;
       deck.makeCards();
       deck.cards.forEach(card => {
