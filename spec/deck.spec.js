@@ -72,14 +72,25 @@ describe('Deck', () => {
       assert.strictEqual(tally, 52);
     });
   });
-  describe('#sort()', () => {
+  describe('#sortCards()', () => {
     it('sorts the elements in the cards array alphabetically by suite and within each suite numerically by value.', () => {
+      // make cards
+      // shuffle cards
+      // sort cards
+      // map uniq elements by card.suite
+      // assert equal values in same order between uniq and suites
+      //
 
     });
   });
-  describe('#shuffle()', () => {
+  describe('#shuffleCards()', () => {
     it('randomizes the position of elements in the cards array.', () => {
-
+      // make cards
+      // ...underscore again
+      deck.makeCards();
+      const initialCardOrder = deck.cards.slice();
+      deck.shuffleCards();
+      assert.notDeeplyEqual(deck.cards, initialCardOrder);
     });
   });
 });
