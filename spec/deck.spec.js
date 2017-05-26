@@ -81,14 +81,26 @@ describe('Deck', () => {
       deck.makeCards();
       deck.shuffleCards();
       deck.sortCards();
-
-
+      const uniqSuites = _.uniq(deck.cards.map(card => card.suite));
+      const originalSuites = suites.slice();
+      originalSuites.sort((a, b) => a.localeCompare(b));
+      let isSortedByAlpha = true;
+      let isSortedByValue = true;
+      for (let i = 0;
+        i < (originalSuites.length)
+          && isSortedByAlpha
+          && isSortedByValue;
+        i += 1) {
+        if (originalSuites[i] !== uniqSuites[i]) isSortedByAlpha = false;
+        for (let j = 0; j < 13 && isSortedByValue; j += 1) {
+          if (deck.cards[j + (i * 13)].value !== (j + 1)) isSortedByValue = false;
+        }
+      }
+      assert.isTrue((isSortedByAlpha && isSortedByValue));
     });
   });
   describe('#shuffleCards()', () => {
     it('randomizes the position of elements in the cards array.', () => {
-      // make cards
-      // ...underscore again
       deck.makeCards();
       const initialCardOrder = deck.cards.slice();
       deck.shuffleCards();
