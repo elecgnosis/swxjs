@@ -1,5 +1,5 @@
 import { assert, beforeAll } from 'chai';
-import { stub } from 'sinon';
+import { spy, stub } from 'sinon';
 import _ from 'underscore';
 import suites from '../src/strings/suites';
 import cardNames from '../src/strings/cardnames';
@@ -56,7 +56,20 @@ describe('Deck', () => {
   });
   describe('#showCards()', () => {
     it('calls console.log with the result of calling card.getNameAndSuite for each element in the cards array.', () => {
-
+      // make cards
+      // spy on .getNameAndSuite for each
+      // call showCards
+      // tally spy method calls
+      let tally = 0;
+      deck.makeCards();
+      deck.cards.forEach(card => {
+        spy(card, 'getNameAndSuite');
+      });
+      deck.showCards();
+      deck.cards.forEach(card => {
+        tally += card.getNameAndSuite.callCount;
+      });
+      assert.strictEqual(tally, 52);
     });
   });
   describe('#sort()', () => {
