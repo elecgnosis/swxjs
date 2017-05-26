@@ -4,9 +4,9 @@
   "description": "swxjs",
   "main": "lib/main.js",
   "scripts": {
-    "start": "babel src -d lib && node lib/main.js",
-    "test": "babel-node spec/run.js",
-    "build": "babel src -d lib"
+    "start": "node_modules/.bin/babel src -d lib && node lib/main.js",
+    "test": "node_modules/.bin/jasmine",
+    "build": "node_modules/.bin/babel src -d lib"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,6 @@
     "eslint-plugin-import": "^2.3.0"
   },
   "devDependencies": {
-    "jasmine": "^2.6.0"
+    "jasmine-es6": "^0.4.0"
   }
 }
