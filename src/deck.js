@@ -16,4 +16,7 @@ export default class Deck {
       });
     });
   }
+  showCards() {
+    this.cards.forEach(card => console.log(card.getNameAndSuite()));
+  }
 }
