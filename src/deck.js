@@ -1,3 +1,4 @@
+import _ from 'underscore';
 import suites from './strings/suites';
 import cardNames from './strings/cardnames';
 import Card from './card';
@@ -18,5 +19,11 @@ export default class Deck {
   }
   showCards() {
     this.cards.forEach(card => console.log(card.getNameAndSuite()));
+  }
+  sortCards() {
+    
+  }
+  shuffleCards() {
+    this.cards = _.shuffle(this.cards);
   }
 }

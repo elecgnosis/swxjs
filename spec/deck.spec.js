@@ -77,9 +77,11 @@ describe('Deck', () => {
       // make cards
       // shuffle cards
       // sort cards
-      // map uniq elements by card.suite
-      // assert equal values in same order between uniq and suites
-      //
+      // 
+      deck.makeCards();
+      deck.shuffleCards();
+      deck.sortCards();
+
 
     });
   });
@@ -90,7 +92,7 @@ describe('Deck', () => {
       deck.makeCards();
       const initialCardOrder = deck.cards.slice();
       deck.shuffleCards();
-      assert.notDeeplyEqual(deck.cards, initialCardOrder);
+      assert.notDeepEqual(deck.cards, initialCardOrder);
     });
   });
 });
