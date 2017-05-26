@@ -6,6 +6,9 @@ export default class Card {
     if (typeof suite !== 'string') throw new TypeError('First parameter must be a string.');
     if (typeof name !== 'string') throw new TypeError('Second parameter must be a string.');
     if (typeof value !== 'number') throw new TypeError('Third parameter be a number.');
-    
+
+    this.suite = suite;
+    this.name = name;
+    this.value = value;
   }
 }
