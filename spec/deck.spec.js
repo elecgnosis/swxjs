@@ -48,7 +48,7 @@ describe('Deck', () => {
       deck.makeCards();
       let cardCount = 0;
       deck.cards.forEach(card => {
-        if (card instanceOf Card) cardCount += 1;
+        if (card instanceof Card) cardCount += 1;
       });
       assert.strictEqual(cardCount, 52);
     });
