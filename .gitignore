@@ -56,3 +56,6 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# Transpiled files generated on each run
+lib/
