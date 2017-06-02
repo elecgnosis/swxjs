@@ -1,23 +1,23 @@
 /**
- * Card holds three pieces of information: a suite name, a card name, and a
+ * Card holds three pieces of information: a suit name, a card name, and a
  * numeric value for comparisons. It also has a method for getting a fancy name
- * made of the card name and suite name together.
+ * made of the card name and suit name together.
  * @type {Card}
  */
 export default class Card {
-  constructor(suite, name, value) {
-    if (!suite) throw new TypeError('Suite name is required.');
-    if (!name) throw new TypeError('Suite name is required.');
+  constructor(suit, name, value) {
+    if (!suit) throw new TypeError('suit name is required.');
+    if (!name) throw new TypeError('suit name is required.');
     if (!value && value !== 0) throw new TypeError('Value is required.');
-    if (typeof suite !== 'string') throw new TypeError('First parameter must be a string.');
+    if (typeof suit !== 'string') throw new TypeError('First parameter must be a string.');
     if (typeof name !== 'string') throw new TypeError('Second parameter must be a string.');
     if (typeof value !== 'number') throw new TypeError('Third parameter be a number.');
 
-    this.suite = suite;
+    this.suit = suit;
     this.name = name;
     this.value = value;
   }
-  getNameAndSuite() {
-    return `${this.name} of ${this.suite}`;
+  getNameAndsuit() {
+    return `${this.name} of ${this.suit}`;
   }
 }

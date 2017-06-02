@@ -38,35 +38,33 @@ describe('Deck', () => {
     });
     it('calls the Card class constructor with different arguments fifty-two times.', () => {
       deck.makeCards();
-      const cardNamesWithSuite = deck.cards.map((card) => card.getNameAndSuite());
-      const noDuplicatesArray = _.uniq(cardNamesWithSuite);
-      assert.lengthOf(noDuplicatesArray, cardNamesWithSuite.length);
+      const cardNamesWithsuit = deck.cards.map((card) => card.getNameAndsuit());
+      const noDuplicatesArray = _.uniq(cardNamesWithsuit);
+      assert.lengthOf(noDuplicatesArray, cardNamesWithsuit.length);
     });
     it('stores fifty-two instances of the Card class in the cards array.', () => {
       deck.makeCards();
       let cardCount = 0;
-      deck.cards.forEach(card => {
-        if (card instanceof Card) cardCount += 1;
-      });
+      deck.cards.forEach(card => card instanceof Card ? cardCount += 1 : null);
       assert.strictEqual(cardCount, 52);
     });
   });
   describe('#showCards()', () => {
-    it('calls console.log with the result of calling card.getNameAndSuite for each element in the cards array.', () => {
+    it('calls console.log with the result of calling card.getNameAndsuit for each element in the cards array.', () => {
       let tally = 0;
       deck.makeCards();
       deck.cards.forEach(card => {
-        spy(card, 'getNameAndSuite');
+        spy(card, 'getNameAndsuit');
       });
       deck.showCards();
       deck.cards.forEach(card => {
-        tally += card.getNameAndSuite.callCount;
+        tally += card.getNameAndsuit.callCount;
       });
       assert.strictEqual(tally, 52);
     });
   });
   describe('#sortCards()', () => {
-    it('sorts the elements in the cards array alphabetically by suite and within each suite numerically by value.', () => {
+    it('sorts the elements in the cards array alphabetically by suit and within each suit numerically by value.', () => {
       // make cards
       // shuffle cards
       // sort cards
@@ -74,7 +72,7 @@ describe('Deck', () => {
       deck.makeCards();
       deck.shuffleCards();
       deck.sortCards();
-      const uniqsuits = _.uniq(deck.cards.map(card => card.suite));
+      const uniqsuits = _.uniq(deck.cards.map(card => card.suit));
       const originalsuits = suits.slice();
       originalsuits.sort((a, b) => a.localeCompare(b));
       let isSortedByAlpha = true;

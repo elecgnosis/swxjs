@@ -7,7 +7,8 @@
     "start": "npm i && \"node_modules/.bin/babel\" src -d lib && node lib/main.js",
     "test": "npm i && \"node_modules/.bin/jasmine\"",
     "build": "npm i && \"node_modules/.bin/babel\" src -d lib",
-    "ez-test": "node_modules/.bin/jasmine"
+    "ez-test": "node_modules/.bin/jasmine",
+    "new-test": "node test.js"
   },
   "repository": {
     "type": "git",

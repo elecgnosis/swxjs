@@ -26,16 +26,16 @@ export default class Deck {
     this.makeCards
   }
   /**
-   * Generates fifty-two Card objects using the suite and cardName Arrays. On
+   * Generates fifty-two Card objects using the suit and cardName Arrays. On
    * subsequent calls, it empties out the existing array of cards before
    * generating a new one.
    * @return {null} No return value.
    */
   makeCards() {
     this.cards = [];
-    this.suits.forEach(suite => {
+    this.suits.forEach(suit => {
       this.cardNames.forEach((cardName, value) => {
-        this.cards.push(new Card(suite, cardName, (value + 1)));
+        this.cards.push(new Card(suit, cardName, (value + 1)));
       });
     });
   }
@@ -45,23 +45,23 @@ export default class Deck {
    * @return {null} No return value.
    */
   showCards() {
-    this.cards.forEach(card => console.log(card.getNameAndSuite()));
+    this.cards.forEach(card => console.log(card.getNameAndsuit()));
   }
   /**
-   * Sorts the elements in the cards array using the suite name as a primary
+   * Sorts the elements in the cards array using the suit name as a primary
    * sort and the card value as a secondary sort. The end result is the four
    * suits sorted one after the other alphabetically, cards within numerically.
    * @return {null} No return value.
    */
   sortCards() {
     this.cards.sort((a, b) => {
-      const suiteCompareResult = a.suite.localeCompare(b.suite);
-      if (suiteCompareResult === 0) {
+      const suitCompareResult = a.suit.localeCompare(b.suit);
+      if (suitCompareResult === 0) {
         if (a.value > b.value) return 1;
         if (a.value === b.value) return 0;
         if (a.value < b.value) return -1;
       }
-      return suiteCompareResult;
+      return suitCompareResult;
     });
   }
   /**
